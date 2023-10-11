@@ -1,0 +1,62 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.header{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    top:10px;
+    color:white
+}
+.header h1{
+    position:relative;
+    font-size:30px;
+    font-family:"Gill Sans Ultra Bold";
+    top:10px;
+}
+
+.App{
+    width:100vw;
+}
+.header button{
+    margin:10px;
+    background-color:transparent;
+    border:2px solid aliceblue;
+    border-radius: 10px;
+    padding:10px;
+    color:white;
+    font-size:20px;
+}
+video{
+    width:100vw;
+    height:100vh;
+    object-fit: cover;
+    position:absolute;
+}
+.container{
+    top:10px;
+    padding:25px;
+}
+.card2{
+    height:80vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+.card2 h1{
+    color:red;
+    font-size:25px;
+}
+.card2 p{
+    font-size: 20px;
+    font-weight:bold;
+}
+.link{
+    text-decoration: none;
+}
