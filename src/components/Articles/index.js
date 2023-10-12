@@ -46,7 +46,14 @@ class Articles extends Component{
             body:JSON.stringify(details)
         }
         await fetch(url,options)
-        this.getData()
+       
+    }
+
+    delete=async ()=>{
+        const options2={
+            method:'DELETE',
+        }
+        await fetch("https://backend-production-2143.up.railway.app/drop/26",options2)
 
     }
 
@@ -69,10 +76,10 @@ class Articles extends Component{
                 Below you will find an overview of selected user-stories and news from Blueye.</p> 
             </div>
             <div>
-                <input type='text' placeholder='enter article page url' onChange={this.updateimageUrl} value={imageUrl}/>
-                <div className='align-right'>
+               <div>
+               <input type='text'className='input-url' placeholder='enter article page url' onChange={this.updateimageUrl} value={imageUrl}/>
                     <button type='button' className='button' onClick={this.addData}>+Add Article</button>
-                </div>
+               </div>
                 <ul className='image-container'>
                     {array.map(item=>this.image(item))}
                 </ul>

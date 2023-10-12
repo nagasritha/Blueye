@@ -27,6 +27,14 @@
 .image-container li{
   margin:15px;
 }
+.image-container li img{
+    width:200px;
+}
+@media(min-width:550px){
+    .image-container li img{
+        width:250px;
+    }
+}
 .image-container li:hover{
     transform:scale(1.10);
 }
