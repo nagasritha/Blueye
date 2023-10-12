@@ -1,0 +1,30 @@
+.end-card{
+  background-color: #23027d;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  padding: 20px;
+  color:aliceblue;
+  margin-left:-25px;
+  width:100%;
+}
+.end-card div h3:hover{
+  text-decoration:underline;
+}
+.end-card div{
+    width:250px;
+    margin:10px;
+}
+.flex-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.flex-row a{
+  color:white;
+  font-size:30px;
+  margin:10px;
+}
+.flex-row a:hover{
+  color:aqua;
+}

@@ -1,9 +1,16 @@
 
-import {Link} from 'react-router-dom'
+import {Link,Navigate} from 'react-router-dom'
+import Cookies from 'js-cookie'
 import video from '../../introVideo.mp4';
 import './index.css';
 
-const WelcomePage=()=>(
+const WelcomePage=()=>{
+  const token=Cookies.get('jwt_token');
+  console.log(token!==undefined)
+  if(token!==undefined){
+    return <Navigate replace to='/home'/>
+  }
+  return (
     <div className="App">
      <video src={video} autoPlay loop muted plays-inline='true' className='video'/>
      <div className='container'>
@@ -28,5 +35,6 @@ const WelcomePage=()=>(
      </div>
     </div>
   );
+  }
 
 export default WelcomePage;
