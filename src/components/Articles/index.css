@@ -8,3 +8,22 @@
     z-index:-1;
     width:100%;
 }
+.images-list{
+    list-style-type:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.button{
+    background-color:crimson;
+    color:white;
+    padding:5px 10px 5px 10px;
+    border-radius:10px;
+    border-width:0px;
+    cursor: pointer;
+    margin:10px;
+    font-size:18px;
+}
+.align-right{
+    text-align:right;
+}

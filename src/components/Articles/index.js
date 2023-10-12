@@ -8,6 +8,7 @@ import './index.css'
 class Articles extends Component{
     state={
         imageUrl:'',
+        array:[]
     }
 
     componentDidMount(){
@@ -18,15 +19,41 @@ class Articles extends Component{
         const url='https://backend-production-2143.up.railway.app'
         const data=await fetch(url)
         const result= await data.json()
-        console.log(result)
+        return this.setState({array:result})
     }
 
     updateimageUrl=(event)=>{
-        this.setState(event.target())
+        this.setState({imageUrl:event.target.value})
+    }
+
+    image=(item)=>{
+
+        return <li key={item.id}>
+            <img src={item.image_url} alt={item.id}/>
+        </li>
+    }
+
+    addData=async ()=>{
+        const {imageUrl}=this.state
+        const details={imageUrl:imageUrl}
+        console.log(JSON.stringify(details))
+        const url='https://backend-production-2143.up.railway.app/addData'
+        const options={
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(details)
+        }
+        await fetch(url,options)
+        this.getData()
+
     }
 
     render(){
         const token=Cookies.get('jwt_token')
+        const {array,imageUrl}=this.state
+        console.log(array)
         if(token===undefined){
             <Navigate replace to='/'/>
         }
@@ -40,8 +67,17 @@ class Articles extends Component{
                 new scenarios and different environments. This gives us first-hand experience from 
                 real-world experiences as well as performance measurements for our technology. 
                 Below you will find an overview of selected user-stories and news from Blueye.</p> 
-               
-              </div>
+            </div>
+            <div>
+                <input type='text' placeholder='enter article page url' onChange={this.updateimageUrl} value={imageUrl}/>
+                <div className='align-right'>
+                    <button type='button' className='button' onClick={this.addData}>+Add Article</button>
+                </div>
+                <ul className='image-container'>
+                    {array.map(item=>this.image(item))}
+                </ul>
+            </div>
+
                 <EndCard/>
             </div>
         )
